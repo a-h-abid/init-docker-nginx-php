@@ -10,7 +10,7 @@ Adds docker to your PHP project.
 2. Run below command
 
 ```sh
-( curl -sSLf https://raw.githubusercontent.com/a-h-abid/init-docker-nginx-php/refs/heads/master/bin/install.sh -o - || echo 'return 1' ) | sh -s
+( curl -sSLf https://raw.githubusercontent.com/a-h-abid/init-docker-nginx-php/refs/heads/main/bin/install.sh -o - || echo 'return 1' ) | sh -s
 ```
 
 This will copy a `docker` directory & a `.dockerignore` file in your project root.
