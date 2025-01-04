@@ -1,0 +1,16 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "a-h-abid/init-docker-nginx-php",
+    "description": "Add Docker to PHP Project",
+    "keywords": ["docker", "nginx", "php"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ahmedul Haque Abid",
+            "email": "a_h_abid@hotmail.com"
+        }
+    ],
+    "bin": [
+        "bin/init-docker-nginx-php"
+    ]
+}

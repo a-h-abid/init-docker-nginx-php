@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+calledDir=$(pwd)
+projectDir=$(dirname $(dirname $(realpath "$0")))
+
+declare -A directories=(
+    ["$projectDir/docker"]="$calledDir/docker"
+    ["$projectDir/.dockerignore"]="$calledDir/.dockerignore"
+)
+
+for src in "${!directories[@]}"; do
+    dest=${directories[$src]}
+    cp -r "$src" "$dest"
+done
