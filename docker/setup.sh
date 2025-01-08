@@ -38,6 +38,10 @@ nginx_add_otel() {
         endpoint localhost:4317;\
     }\
 ' ./nginx/etc-nginx/nginx.conf
+
+    # Add otel image tag suffix
+    sed -i 's/^#\s*NGINX_TAG_SUFFIX/NGINX_TAG_SUFFIX/' ./.env
+    sed -i 's/^\(NGINX_TAG_SUFFIX=.*\)/\1-otel/' ./.env
 }
 
 nginx_remove_otel() {
@@ -53,6 +57,10 @@ nginx_remove_otel() {
 
     # Remove empty lines from start of file
     sed -i '/./,$!d' ./nginx/etc-nginx/nginx.conf
+
+    # Remove otel image tag suffix
+    sed -i 's/^\(NGINX_TAG_SUFFIX=.*\)-otel/\1/' ./.env
+    sed -i 's/^\s*NGINX_TAG_SUFFIX/# NGINX_TAG_SUFFIX/' ./.env
 }
 
 if [ $# -eq 0 ]; then
