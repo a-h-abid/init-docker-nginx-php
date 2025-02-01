@@ -36,7 +36,7 @@ nginx_add_otel() {
     otel_trace on;\
     otel_trace_context propagate;\
     otel_exporter {\
-        endpoint localhost:4317;\
+        endpoint collector:4317;\
     }\
 ' ./nginx/etc-nginx/nginx.conf
 
