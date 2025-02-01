@@ -32,6 +32,7 @@ nginx_add_otel() {
 
     sed -i '/include \/etc\/nginx\/conf.d\/\*.conf/i \
     otel_service_name app:nginx;\
+    otel_span_name "$request_method $request_uri";\
     otel_trace on;\
     otel_trace_context propagate;\
     otel_exporter {\
@@ -48,6 +49,7 @@ nginx_remove_otel() {
     sed -i '/load_module modules\/ngx_otel_module.so;/d' ./nginx/etc-nginx/nginx.conf
 
     sed -i '/otel_service_name app:nginx;/d' ./nginx/etc-nginx/nginx.conf
+    sed -i '/otel_span_name "$request_method $request_uri";/d' ./nginx/etc-nginx/nginx.conf
     sed -i '/otel_trace on;/d' ./nginx/etc-nginx/nginx.conf
     sed -i '/otel_trace_context propagate;/d' ./nginx/etc-nginx/nginx.conf
     sed -i '/otel_exporter {/,/}/d' ./nginx/etc-nginx/nginx.conf
