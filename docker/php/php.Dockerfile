@@ -52,6 +52,7 @@ RUN curl -L -o /usr/local/bin/install-php-extensions https://github.com/mlocati/
     && install-php-extensions \
         bcmath \
         exif \
+        ffi \
         fileinfo \
         gd \
         gettext \
@@ -71,6 +72,7 @@ RUN curl -L -o /usr/local/bin/install-php-extensions https://github.com/mlocati/
         xml \
         xmlreader \
         zip \
+        zlib \
     && if [ ! -z "${EXTRA_INSTALL_PHP_EXTENSIONS}" ]; then \
         install-php-extensions ${EXTRA_INSTALL_PHP_EXTENSIONS} \
     ;fi \
